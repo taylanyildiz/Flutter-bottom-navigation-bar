@@ -6,18 +6,18 @@ Bottom Navigation bar
 
 ```dart
 #### -1
-path.lineTo(size.width * -.05, 0);
+ path.lineTo(size.width * -.05, 0);
     path.cubicTo(
       size.width * .0,
       size.height * .05,
       size.width * .0,
-      size.height * 5 / 8,
+      size.height * 6 / 8,
       size.width * .1,
       size.height * 6 / 8,
     );
     path.cubicTo(
       size.width * .2,
-      size.height * 7 / 8,
+      size.height * 6 / 8,
       size.width * .2,
       size.height * .05,
       size.width * .35,

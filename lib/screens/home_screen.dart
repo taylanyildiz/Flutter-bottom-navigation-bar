@@ -31,6 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [],
       ),
       bottomNavigationBar: CfNavigationBar(
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 1),
+        curve: Curves.linear,
         controller: _pageController!,
         items: [
           Icon(

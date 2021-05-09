@@ -5,10 +5,10 @@ class NavigationPaint extends CustomPainter {
   NavigationPaint({
     required this.controller,
     this.pageCount,
-    this.cicleColor,
+    this.color,
     this.radius,
   })  : navigationPaint = Paint()
-          ..color = cicleColor ?? Colors.orange
+          ..color = color ?? Colors.orange
           ..style = PaintingStyle.fill
           ..strokeWidth = 10.0,
         super(repaint: controller) {
@@ -25,7 +25,7 @@ class NavigationPaint extends CustomPainter {
   final int? pageCount;
 
   /// Circle indicator color.
-  final Color? cicleColor;
+  final Color? color;
 
   /// Navigation background paint.
   final Paint navigationPaint;
@@ -40,21 +40,21 @@ class NavigationPaint extends CustomPainter {
 
   _drawback(Canvas canvas, Size size) {
     Path path = Path();
-    path.lineTo(size.width * -.05, 0);
+    path.lineTo(size.width * .05, 0);
     path.cubicTo(
-      size.width * .0,
+      size.width * .2,
       size.height * .05,
-      size.width * .0,
-      size.height * 5 / 8,
-      size.width * .1,
+      size.width * .2,
+      size.height * 6 / 8,
+      size.width * .3,
       size.height * 6 / 8,
     );
     path.cubicTo(
-      size.width * .2,
-      size.height * 7 / 8,
-      size.width * .2,
+      size.width * .4,
+      size.height * 6 / 8,
+      size.width * .4,
       size.height * .05,
-      size.width * .35,
+      size.width * .55,
       0,
     );
 

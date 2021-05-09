@@ -20,7 +20,11 @@ class CfNavigationBar extends StatefulWidget {
     Key? key,
     required this.items,
     required this.controller,
+    required this.curve,
+    required this.duration,
     this.backgroundColor,
+    this.circleColor,
+    this.barColor,
   }) : super(key: key);
 
   final List<Widget> items;
@@ -29,6 +33,14 @@ class CfNavigationBar extends StatefulWidget {
 
   final Color? backgroundColor;
 
+  final Color? barColor;
+
+  final Color? circleColor;
+
+  final Curve curve;
+
+  final Duration duration;
+
   static _CfNavigationBarState of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<_NavigationScope>()!.state;
 
@@ -36,28 +48,38 @@ class CfNavigationBar extends StatefulWidget {
   _CfNavigationBarState createState() => _CfNavigationBarState();
 }
 
-class _CfNavigationBarState extends State<CfNavigationBar> {
+class _CfNavigationBarState extends State<CfNavigationBar>
+    with TickerProviderStateMixin {
+  /// Buradan [Path] cubicTo ya etki etemeliyiz. Pozisyonunu bar da olan iconlara tıklayarak
+  /// Pozisyonunu değiştirmeliyiz ve bu animasyon halinde olmalı
+  /// Buradan animasyon gönderilecek paint kısmında ise bu animasyon ile beraber pozisyon value değişikliği yapılacak.
+
+  AnimationController? _animationController;
+
+  int? _length;
+
+  double? _position;
+
+  void _checkControll() {
+    _length = widget.items.length;
+    _position = widget.controller.initialPage.toDouble();
+  }
+
   @override
   void initState() {
     super.initState();
+    _checkControll();
+    _animationController = AnimationController(vsync: this, value: _position);
+    _animationController!.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
+    _animationController!.dispose();
   }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
-  void didUpdateWidget(covariant CfNavigationBar oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
-
-  void changePaintPosition(DragStartDetails position) {}
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +94,7 @@ class _CfNavigationBarState extends State<CfNavigationBar> {
             child: CustomPaint(
               painter: NavigationPaint(
                 controller: widget.controller,
+                color: widget.barColor,
                 pageCount: 3,
               ),
             ),
@@ -84,14 +107,11 @@ class _CfNavigationBarState extends State<CfNavigationBar> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: widget.items
                     .map(
-                      (e) => Container(
-                        padding: EdgeInsets.all(10.0),
-                        margin: EdgeInsets.symmetric(horizontal: 10.0),
-                        decoration: BoxDecoration(
-                          color: Colors.orange,
-                          shape: BoxShape.circle,
-                        ),
+                      (e) => CfAction(
                         child: e,
+                        backgroundColor: widget.circleColor,
+                        onPressed: (index) => print(index),
+                        index: widget.items.indexOf(e),
                       ),
                     )
                     .toList(),
