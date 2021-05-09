@@ -5,7 +5,7 @@ Bottom Navigation bar
 ## Getting Started
 
 ```dart
-#### -1
+#### -1 first icon position paint
  path.lineTo(size.width * -.05, 0);
     path.cubicTo(
       size.width * .0,
@@ -23,7 +23,7 @@ Bottom Navigation bar
       size.width * .35,
       0,
     );
-##### -2
+##### -2 second icon position paint
  path.lineTo(size.width * .05, 0);
     path.cubicTo(
       size.width * .2,
@@ -41,7 +41,7 @@ Bottom Navigation bar
       size.width * .55,
       0,
     );
-##### -3
+##### -3 third icon position paint
 path.lineTo(size.width * .25, 0);
     path.cubicTo(
       size.width * .4,
@@ -59,7 +59,7 @@ path.lineTo(size.width * .25, 0);
       size.width * .75,
       0,
     );
-##### -4
+##### -4 fourth icon position paint
 path.lineTo(size.width * .45, 0);
     path.cubicTo(
       size.width * .6,
@@ -77,9 +77,9 @@ path.lineTo(size.width * .45, 0);
       size.width * .95,
       0,
     );
-#### -5
-path.lineTo(size.width * .6, 0);
-    path.cubicTo(
+#### -5 fifth icon position paint
+path.lineTo(size.width * .65, 0);
+   path.cubicTo(
       size.width * .8,
       size.height * .05,
       size.width * .8,
@@ -92,12 +92,51 @@ path.lineTo(size.width * .6, 0);
       size.height * 6 / 8,
       size.width * 1,
       size.height * .05,
-      size.width * 1.5,
+      size.width * 1.1,
+      0,
+    );
+```
+
+
+```dart
+    /// If click first ActionButton
+    /// path.lineTo(size.width * [x],0) x  ==> -0.5
+    /// also second ActionButton [x] ==> 0.5
+    /// Other Actionbuttons [x] ==> increasing by two
+    /// index - 0 [x] == -0.5
+    /// index - 1 [x] ==  0.5
+    /// index - 2 [x] ==  2.5
+    /// index - 3 [x] ==  4.5
+    /// index - 4 [x] ==  6.5
+    path.lineTo(size.width * .05 /*[x]*/, 0);
+    path.cubicTo(
+      size.width * .2,
+      size.height * .05, // constant
+      size.width * .2,
+      size.height * 6 / 8, // constant
+      size.width * .3,
+      size.height * 6 / 8, // constant
+    );
+    path.cubicTo(
+      size.width * .4,
+      size.height * 6 / 8, // constant
+      size.width * .4,
+      size.height * .05, // constant
+      size.width * .55,
       0,
     );
 
-
+    /// After every change position, here going to be constant.
+    /// Therefor we don't change these values.
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    canvas.drawPath(path, navigationPaint);
 ```
+
+  - [path-lineTo](https://api.flutter.dev/flutter/dart-ui/Path/lineTo.html)
+  - [path-cubicTo](https://api.flutter.dev/flutter/dart-ui/Path/cubicTo.html)
 
 This project is a starting point for a Flutter application.
 

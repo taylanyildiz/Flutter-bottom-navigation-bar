@@ -14,12 +14,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  PageController? _pageController;
-
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
   }
 
   @override
@@ -34,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.red,
         duration: Duration(seconds: 1),
         curve: Curves.linear,
-        controller: _pageController!,
         items: [
           Icon(
             Icons.person,

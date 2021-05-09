@@ -19,7 +19,6 @@ class CfNavigationBar extends StatefulWidget {
   CfNavigationBar({
     Key? key,
     required this.items,
-    required this.controller,
     required this.curve,
     required this.duration,
     this.backgroundColor,
@@ -28,8 +27,6 @@ class CfNavigationBar extends StatefulWidget {
   }) : super(key: key);
 
   final List<Widget> items;
-
-  final PageController controller;
 
   final Color? backgroundColor;
 
@@ -50,26 +47,14 @@ class CfNavigationBar extends StatefulWidget {
 
 class _CfNavigationBarState extends State<CfNavigationBar>
     with TickerProviderStateMixin {
-  /// Buradan [Path] cubicTo ya etki etemeliyiz. Pozisyonunu bar da olan iconlara tıklayarak
-  /// Pozisyonunu değiştirmeliyiz ve bu animasyon halinde olmalı
-  /// Buradan animasyon gönderilecek paint kısmında ise bu animasyon ile beraber pozisyon value değişikliği yapılacak.
-
+  /// Animationcontroller.
   AnimationController? _animationController;
-
-  int? _length;
-
-  double? _position;
-
-  void _checkControll() {
-    _length = widget.items.length;
-    _position = widget.controller.initialPage.toDouble();
-  }
 
   @override
   void initState() {
     super.initState();
-    _checkControll();
-    _animationController = AnimationController(vsync: this, value: _position);
+
+    _animationController = AnimationController(vsync: this, value: 0);
     _animationController!.addListener(() {
       setState(() {});
     });
@@ -93,9 +78,7 @@ class _CfNavigationBarState extends State<CfNavigationBar>
             height: 100.0,
             child: CustomPaint(
               painter: NavigationPaint(
-                controller: widget.controller,
                 color: widget.barColor,
-                pageCount: 3,
               ),
             ),
           ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class NavigationPaint extends CustomPainter {
   /// Constructor NavigationPaint.
   NavigationPaint({
-    required this.controller,
     this.pageCount,
     this.color,
     this.radius,
@@ -11,15 +10,15 @@ class NavigationPaint extends CustomPainter {
           ..color = color ?? Colors.orange
           ..style = PaintingStyle.fill
           ..strokeWidth = 10.0,
-        super(repaint: controller) {
+        super() {
     /// We have math equation for controll position.
-    /// also it has animation changes value.
+    /// also it has animation for changes value.
   }
 
   /// Pageview Controller [PageController].
   ///
   /// for animation cirlce indicator.
-  final Listenable controller;
+  /// final Listenable controller;
 
   /// Pageview [pageCount] how many have.
   final int? pageCount;
