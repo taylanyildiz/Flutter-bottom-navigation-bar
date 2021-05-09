@@ -29,6 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: CfNavigationBar(
         backgroundColor: Colors.red,
+        barColor: Colors.orange,
+        circleColor: Colors.grey,
         duration: Duration(seconds: 1),
         curve: Curves.linear,
         items: [

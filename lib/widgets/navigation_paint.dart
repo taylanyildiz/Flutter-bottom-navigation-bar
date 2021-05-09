@@ -39,7 +39,7 @@ class NavigationPaint extends CustomPainter {
 
   _drawback(Canvas canvas, Size size) {
     Path path = Path();
-    path.lineTo(size.width * .05, 0);
+    path.lineTo(size.width * .07, 0);
     path.cubicTo(
       size.width * .2,
       size.height * .05,

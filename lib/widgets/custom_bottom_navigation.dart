@@ -8,7 +8,7 @@ class _NavigationScope extends InheritedWidget {
     required this.state,
   }) : super(key: key, child: child);
 
-  final _CfNavigationBarState state;
+  final CfNavigationBarState state;
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) =>
@@ -38,14 +38,14 @@ class CfNavigationBar extends StatefulWidget {
 
   final Duration duration;
 
-  static _CfNavigationBarState of(BuildContext context) =>
+  static CfNavigationBarState of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<_NavigationScope>()!.state;
 
   @override
-  _CfNavigationBarState createState() => _CfNavigationBarState();
+  CfNavigationBarState createState() => CfNavigationBarState();
 }
 
-class _CfNavigationBarState extends State<CfNavigationBar>
+class CfNavigationBarState extends State<CfNavigationBar>
     with TickerProviderStateMixin {
   /// Animationcontroller.
   AnimationController? _animationController;
@@ -64,6 +64,11 @@ class _CfNavigationBarState extends State<CfNavigationBar>
   void dispose() {
     super.dispose();
     _animationController!.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
   }
 
   @override

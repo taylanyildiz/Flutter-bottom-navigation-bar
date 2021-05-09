@@ -24,7 +24,7 @@ Bottom Navigation bar
       0,
     );
 ##### -2 second icon position paint
- path.lineTo(size.width * .05, 0);
+ path.lineTo(size.width * .07, 0);
     path.cubicTo(
       size.width * .2,
       size.height * .05,
@@ -108,7 +108,7 @@ path.lineTo(size.width * .65, 0);
     /// index - 2 [x] ==  2.5
     /// index - 3 [x] ==  4.5
     /// index - 4 [x] ==  6.5
-    path.lineTo(size.width * .05 /*[x]*/, 0);
+    path.lineTo(size.width * .7 /*[x]*/, 0);
     path.cubicTo(
       size.width * .2,
       size.height * .05, // constant
