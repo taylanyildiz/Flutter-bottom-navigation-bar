@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.red,
         barColor: Colors.orange,
         circleColor: Colors.orange,
-        duration: Duration(milliseconds: 1000),
+        duration: Duration(milliseconds: 600),
         curve: Curves.linear,
         items: [
           Icon(
