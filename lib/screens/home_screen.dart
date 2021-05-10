@@ -14,10 +14,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  PageController? _controller;
+
   @override
   void initState() {
     super.initState();
+    _controller = PageController(initialPage: 2);
   }
+
+  int index1 = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +30,29 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Stack(
-        children: [],
+        children: [
+          PageView.builder(
+            controller: _controller,
+            itemCount: 5,
+            onPageChanged: (page) => setState(() {}),
+            itemBuilder: (context, index) => Container(
+              color: Colors.blue,
+              child: Center(
+                child: Text(
+                  '$index Page',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
       bottomNavigationBar: CfNavigationBar(
+        controller: _controller!,
+        onPressed: (index) => print(index),
         backgroundColor: Colors.red,
         barColor: Colors.orange,
         circleColor: Colors.grey,

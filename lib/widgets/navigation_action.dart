@@ -15,15 +15,15 @@ abstract class ClickableActions extends StatelessWidget {
 
   final Color? backgroundColor;
 
-  void _handlePosition(BuildContext context) {
+  void _handlePosition(BuildContext context, int index) {
     onPressed.call(index);
-    CfNavigationBar.of(context);
+    CfNavigationBar.of(context).changePositionSet(index);
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _handlePosition(context),
+      onTap: () => _handlePosition(context, index),
       child: Container(
         padding: EdgeInsets.all(10.0),
         margin: EdgeInsets.symmetric(horizontal: 10.0),

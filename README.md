@@ -1,8 +1,11 @@
 # flutter_bottom_navigation
 
 Bottom Navigation bar 
-
-## Getting Started
+###
+The mathematical values of each painter position are given below respectively, and a mathematical formula should be derived based on these values. The animation transition is not forgotten.
+### Some animation doc
+ - [painter-animation](https://www.youtube.com/watch?v=yyHhloFMNNA&t=2822s)
+ - [drawer-animation](https://www.youtube.com/watch?v=1KurAaGLwHc&t=700s)
 
 ```dart
 #### -1 first icon position paint
@@ -24,7 +27,7 @@ Bottom Navigation bar
       0,
     );
 ##### -2 second icon position paint
- path.lineTo(size.width * .07, 0);
+ path.lineTo(size.width * .05, 0);
     path.cubicTo(
       size.width * .2,
       size.height * .05,
@@ -134,9 +137,13 @@ path.lineTo(size.width * .65, 0);
     path.close();
     canvas.drawPath(path, navigationPaint);
 ```
+## Painter Methods 
 
   - [path-lineTo](https://api.flutter.dev/flutter/dart-ui/Path/lineTo.html)
   - [path-cubicTo](https://api.flutter.dev/flutter/dart-ui/Path/cubicTo.html)
+## Getting Started
+
+
 
 This project is a starting point for a Flutter application.
 
