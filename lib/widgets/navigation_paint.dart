@@ -51,44 +51,46 @@ class NavigationPaint extends CustomPainter {
       _page = _controller.initialPage.toDouble();
     }
 
-    final center = size.center(Offset.zero);
+    final Offset center = size.center(Offset.zero);
 
-    final pageIndexToLeft = _page.floor();
+    final int pageCount = 5;
 
-    final double leftDotX =
-        (center.dx - (size.width / 2)) + (pageIndexToLeft * ((2 * 50.0) - 25));
+    final radius = size.width / 10;
 
-    final double transitionPercent = _page - pageIndexToLeft;
+    final space = -radius;
 
-    final double laggingLeftPositionPercent =
-        (transitionPercent - 0.3).clamp(0.0, 1.3) / 0.7;
+    final double totalWidth =
+        (pageCount * 2 * radius) + ((pageCount - 1) * space);
 
-    final double positionLeftX =
-        leftDotX + (laggingLeftPositionPercent * ((2 * 50.0) - 25));
+    final int pageIndex = _page.round();
 
-    final double acceleratedRightPositionPercent =
-        (transitionPercent / .5).clamp(0.0, 1.0);
+    final double leftDot =
+        (center.dx - (totalWidth / 2)) + (pageIndex * (2 * radius) + space);
 
-    final double positionRightX = leftDotX +
-        (acceleratedRightPositionPercent * ((2 * 50.0) - 25)) +
-        (2 * 50);
+    final double transition = _page - pageIndex;
+
+    final positionLeft = leftDot + (transition * ((2 * radius) + space));
+
+    final double positionRight = positionLeft + (2 * radius);
 
     Path path = Path();
-    path.lineTo(positionLeftX - 50, 0);
+    path.moveTo(0, 0);
+    path.lineTo(positionLeft - (radius / 5 - 3 * space), 0);
+
     path.cubicTo(
-      positionLeftX + 15,
-      size.height * y,
-      positionLeftX,
-      size.height * x,
-      positionLeftX + 48,
-      size.height * x,
+      positionLeft,
+      size.height * .05,
+      positionLeft + 2 * space,
+      size.height * 5 / 8,
+      positionLeft,
+      size.height * 6 / 8,
     );
     path.cubicTo(
-      positionRightX,
-      size.height * x,
-      positionRightX - 25,
-      size.height * y,
-      positionRightX + 40,
+      positionRight,
+      size.height * 5 / 8,
+      positionRight + 2 * space,
+      size.height * .05,
+      positionRight + (radius / 5 - space),
       0,
     );
 
