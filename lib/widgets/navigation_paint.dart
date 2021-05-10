@@ -55,7 +55,7 @@ class NavigationPaint extends CustomPainter {
 
     final int pageCount = 5;
 
-    final radius = size.width / 10;
+    final radius = size.width / 10.2;
 
     final space = -radius;
 
@@ -78,18 +78,18 @@ class NavigationPaint extends CustomPainter {
     path.lineTo(positionLeft - (radius / 5 - 3 * space), 0);
 
     path.cubicTo(
-      positionLeft,
-      size.height * .05,
+      positionLeft - space / 2,
+      size.height * y,
       positionLeft + 2 * space,
-      size.height * 5 / 8,
+      size.height * x,
       positionLeft,
-      size.height * 6 / 8,
+      size.height * x,
     );
     path.cubicTo(
-      positionRight,
-      size.height * 5 / 8,
+      positionRight + space / 2,
+      size.height * x,
       positionRight + 2 * space,
-      size.height * .05,
+      size.height * y,
       positionRight + (radius / 5 - space),
       0,
     );
