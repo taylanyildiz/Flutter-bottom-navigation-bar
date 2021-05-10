@@ -123,11 +123,11 @@ class CfNavigationBarState extends State<CfNavigationBar>
             ),
           ),
           Positioned(
-            top: 10.0,
+            top: 5.0,
             child: Container(
               width: size.width,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: widget.items
                     .map(
                       (e) => CfAction(

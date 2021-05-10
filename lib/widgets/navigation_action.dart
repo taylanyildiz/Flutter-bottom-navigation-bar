@@ -25,8 +25,7 @@ abstract class ClickableActions extends StatelessWidget {
     return GestureDetector(
       onTap: () => _handlePosition(context, index),
       child: Container(
-        padding: EdgeInsets.all(10.0),
-        margin: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: backgroundColor ?? Colors.orange,
           shape: BoxShape.circle,

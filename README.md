@@ -18,6 +18,8 @@ Bottom Navigation bar Animation.
  - [taylanyildz](https://www.linkedin.com/in/taylan-yıldız-02225a158)
 ### How To Use
  - [home_screen](https://github.com/taylanyildiz/Flutter-bottom-navigation-bar/blob/master/lib/screens/home_screen.dart)
+
+ ## Example
 ```dart
 
     PageController? _controller;

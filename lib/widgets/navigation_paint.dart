@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const x = 0.9;
+const x = 0.8;
 const y = 0.0;
 
 class NavigationPaint extends CustomPainter {
@@ -12,8 +12,7 @@ class NavigationPaint extends CustomPainter {
     this.radius,
   })  : navigationPaint = Paint()
           ..color = color ?? Colors.orange
-          ..style = PaintingStyle.fill
-          ..strokeWidth = 10.0,
+          ..style = PaintingStyle.fill,
         super(repaint: controller) {
     /// We have math equation for controll position.
     /// also it has animation for changes value.
@@ -55,6 +54,7 @@ class NavigationPaint extends CustomPainter {
     if (pageCount! == 4)
       c = -0.1;
     else if (pageCount! == 5) c = 1;
+
     final Offset center = size.center(Offset.zero);
 
     final radius = size.width / (2 * pageCount!);
@@ -77,29 +77,29 @@ class NavigationPaint extends CustomPainter {
 
     Path path = Path();
     path.moveTo(0, 0);
-    path.lineTo(positionLeft - (radius / 5 - 3 * space), 0);
-
+    path.lineTo(positionLeft - radius * 2, 0);
     path.cubicTo(
-      positionLeft - space / 2,
+      positionLeft - radius,
       size.height * y,
-      positionLeft + 2 * space,
+      positionLeft - radius,
       size.height * x,
       positionLeft,
       size.height * x,
     );
+
     path.cubicTo(
-      positionRight + space / 2,
+      positionRight - radius,
       size.height * x,
-      positionRight + 2 * space,
+      positionRight - radius,
       size.height * y,
-      positionRight + (radius / 5 - space),
+      positionRight,
       0,
     );
-
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     path.close();
+
     canvas.drawPath(path, navigationPaint);
   }
 
