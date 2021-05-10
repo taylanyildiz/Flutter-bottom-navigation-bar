@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const x = 0.8;
+const x = 0.9;
 const y = 0.0;
 
 class NavigationPaint extends CustomPainter {
@@ -71,7 +71,19 @@ class NavigationPaint extends CustomPainter {
 
     final double transition = _page - pageIndex;
 
-    final positionLeft = leftDot + (transition * ((2 * radius) + space));
+    /// Lagging Values
+    // final double laggingLeftPosition = (transition - 0.3).clamp(0.0, 1.0) / 0.7;
+
+    // final double indicatorLeftX =
+    //     leftDot + (laggingLeftPosition * ((2 * radius) + space));
+
+    // final double acceleratedRightPosition = (transition / 0.5).clamp(0.0, 1.0);
+
+    // final double indicatorRightX = leftDot +
+    //     (acceleratedRightPosition * ((2 * radius) + space)) +
+    //     (2 * radius);
+
+    final double positionLeft = leftDot + (transition * ((2 * radius) + space));
 
     final double positionRight = positionLeft + (2 * radius);
 

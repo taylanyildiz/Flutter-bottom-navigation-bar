@@ -11,7 +11,7 @@ Bottom Navigation bar Animation.
 |             App Home               |
 :----------------------------------: |
 | <a  target="_blank"><img src="https://user-images.githubusercontent.com/37551474/117642806-69996680-b190-11eb-9009-5ac617ba58b6.gif" width="200"></a>|
-
+| <a  target="_blank"><img src="ss1.png" width="200"></a>|
 ## Github
  - [taylanyildz](https://github.com/taylanyildiz)
 ## Linkedin

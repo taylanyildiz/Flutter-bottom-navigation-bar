@@ -32,14 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: Stack(
         children: [
           PageView.builder(
             controller: _controller,
+            onPageChanged: (page) => print(page),
             itemCount: 5,
             itemBuilder: (context, index) => Container(
-              color: Colors.blue,
+              color: Colors.red,
               child: Center(
                 child: Text(
                   '$index Page',
@@ -56,11 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CfNavigationBar(
         controller: _controller!,
         onPressed: (index) => print(index),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red,
         barColor: Colors.orange,
         circleColor: Colors.orange,
-        duration: Duration(milliseconds: 400),
-        curve: Curves.easeInQuad,
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.linear,
         items: [
           Icon(
             Icons.person,

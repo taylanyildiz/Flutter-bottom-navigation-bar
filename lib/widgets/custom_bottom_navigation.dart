@@ -110,9 +110,9 @@ class CfNavigationBarState extends State<CfNavigationBar>
         children: [
           Positioned(
             child: Container(
-              color: widget.backgroundColor ?? Colors.blue,
+              color: widget.backgroundColor ?? Colors.orange,
               width: size.width,
-              height: 100.0,
+              height: 60.0,
               child: CustomPaint(
                 painter: NavigationPaint(
                   color: widget.barColor,
@@ -123,7 +123,7 @@ class CfNavigationBarState extends State<CfNavigationBar>
             ),
           ),
           Positioned(
-            top: 5.0,
+            top: 0.0,
             child: Container(
               width: size.width,
               child: Row(
@@ -140,7 +140,7 @@ class CfNavigationBarState extends State<CfNavigationBar>
                     .toList(),
               ),
             ),
-          )
+          ),
         ],
       ),
       state: this,
