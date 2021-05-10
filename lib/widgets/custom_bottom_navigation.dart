@@ -28,7 +28,8 @@ class CfNavigationBar extends StatefulWidget {
     this.backgroundColor,
     this.circleColor,
     this.barColor,
-  }) : super(key: key);
+  })  : assert(items.length >= 4 && items.length <= 5),
+        super(key: key);
 
   /// [PageView] Controller need.
   ///
@@ -36,6 +37,8 @@ class CfNavigationBar extends StatefulWidget {
   final PageController controller;
 
   /// Bottom navigation buttons widget.
+  ///
+  /// May be at least 4 can be at most 5
   final List<Widget> items;
 
   /// BottomBar background line color
@@ -114,6 +117,7 @@ class CfNavigationBarState extends State<CfNavigationBar>
                 painter: NavigationPaint(
                   color: widget.barColor,
                   controller: widget.controller,
+                  pageCount: widget.items.length,
                 ),
               ),
             ),

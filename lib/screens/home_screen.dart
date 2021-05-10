@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           PageView.builder(
             controller: _controller,
-            itemCount: 5,
+            itemCount: 4,
             itemBuilder: (context, index) => Container(
               color: Colors.blue,
               child: Center(
@@ -82,11 +82,11 @@ class _HomeScreenState extends State<HomeScreen> {
             size: 30.0,
             color: Colors.white,
           ),
-          Icon(
-            Icons.notification_important,
-            size: 30.0,
-            color: Colors.white,
-          ),
+          // Icon(
+          //   Icons.notification_important,
+          //   size: 30.0,
+          //   color: Colors.white,
+          // ),
         ],
       ),
     );

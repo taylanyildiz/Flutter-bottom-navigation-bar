@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-const x = 0.75;
-const y = 0.05;
+const x = 0.9;
+const y = 0.0;
 
 class NavigationPaint extends CustomPainter {
   /// Constructor NavigationPaint.
@@ -50,17 +50,19 @@ class NavigationPaint extends CustomPainter {
     } else {
       _page = _controller.initialPage.toDouble();
     }
+    double c = 0;
 
+    if (pageCount! == 4)
+      c = -0.1;
+    else if (pageCount! == 5) c = 1;
     final Offset center = size.center(Offset.zero);
 
-    final int pageCount = 5;
-
-    final radius = size.width / 10.2;
+    final radius = size.width / (2 * pageCount!);
 
     final space = -radius;
 
     final double totalWidth =
-        (pageCount * 2 * radius) + ((pageCount - 1) * space);
+        (pageCount! * 2 * radius) + ((pageCount! - c) * space);
 
     final int pageIndex = _page.round();
 
