@@ -6,6 +6,12 @@ Bottom Navigation bar Animation.
  - [painter-animation](https://www.youtube.com/watch?v=yyHhloFMNNA&t=2822s)
  - [drawer-animation](https://www.youtube.com/watch?v=1KurAaGLwHc&t=700s)
 
+
+### 
+|             App Home               |
+:----------------------------------: |
+| <a  target="_blank"><img src="https://user-images.githubusercontent.com/37551474/117642806-69996680-b190-11eb-9009-5ac617ba58b6.gif" width="200"></a>|
+
 ## Github
  - [taylanyildz](https://github.com/taylanyildiz)
 ## Linkedin
