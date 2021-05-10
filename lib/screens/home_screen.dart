@@ -22,7 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _controller = PageController(initialPage: 2);
   }
 
-  int index1 = 0;
+  @override
+  void dispose() {
+    super.dispose();
+    _controller!.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
           PageView.builder(
             controller: _controller,
             itemCount: 5,
-            onPageChanged: (page) => setState(() {}),
             itemBuilder: (context, index) => Container(
               color: Colors.blue,
               child: Center(
@@ -53,11 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CfNavigationBar(
         controller: _controller!,
         onPressed: (index) => print(index),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         barColor: Colors.orange,
-        circleColor: Colors.grey,
-        duration: Duration(seconds: 1),
-        curve: Curves.linear,
+        circleColor: Colors.orange,
+        duration: Duration(milliseconds: 400),
+        curve: Curves.easeInQuad,
         items: [
           Icon(
             Icons.person,

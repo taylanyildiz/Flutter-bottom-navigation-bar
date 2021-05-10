@@ -1,12 +1,88 @@
 # flutter_bottom_navigation
 
-Bottom Navigation bar 
-###
-The mathematical values of each painter position are given below respectively, and a mathematical formula should be derived based on these values. The animation transition is not forgotten.
-### Some animation doc
+Bottom Navigation bar Animation.
+
+### Some animation doc video
  - [painter-animation](https://www.youtube.com/watch?v=yyHhloFMNNA&t=2822s)
  - [drawer-animation](https://www.youtube.com/watch?v=1KurAaGLwHc&t=700s)
 
+## Github
+ - [taylanyildz](https://github.com/taylanyildiz)
+## Linkedin
+ - [taylanyildz](https://www.linkedin.com/in/taylan-yıldız-02225a158)
+### How To Use
+ - [home_screen](https://github.com/taylanyildiz/Flutter-bottom-navigation-bar/blob/master/lib/screens/home_screen.dart)
+```dart
+
+    PageController? _controller;
+
+    @override
+    void initState() {
+      super.initState();
+      _controller = PageController(initialPage: 2);
+    }
+
+    PageView.builder(
+            controller: _controller,
+            itemCount: 5,
+            itemBuilder: (context, index) => Container(
+              color: Colors.blue,
+              child: Center(
+                child: Text(
+                  '$index Page',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+      bottomNavigationBar: CfNavigationBar(
+        controller: _controller!,
+        onPressed: (index) => print(index),
+        backgroundColor: Colors.blue,
+        barColor: Colors.orange,
+        circleColor: Colors.orange,
+        duration: Duration(milliseconds: 400),
+        curve: Curves.easeInQuad,
+        items: [
+          Icon(
+            Icons.person,
+            size: 30.0,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.access_alarm,
+            size: 30.0,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.home,
+            size: 30.0,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.settings,
+            size: 30.0,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.notification_important,
+            size: 30.0,
+            color: Colors.white,
+          ),
+        ],
+      ),
+
+```
+
+
+### Math...
+###
+The mathematical values of each painter position are given below respectively, and a mathematical formula should be derived based on these values. The animation transition is not forgotten.
 ```dart
 #### -1 first icon position paint
  path.lineTo(size.width * -.05, 0);

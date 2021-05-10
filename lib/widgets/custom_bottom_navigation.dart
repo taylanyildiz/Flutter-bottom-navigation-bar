@@ -69,20 +69,14 @@ class CfNavigationBar extends StatefulWidget {
 
 class CfNavigationBarState extends State<CfNavigationBar>
     with TickerProviderStateMixin {
-  /// Animationcontroller changes the painter position.
-  AnimationController? _animationController;
-
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this);
-    _animationController!.addListener(() {});
   }
 
   @override
   void dispose() {
     super.dispose();
-    _animationController!.dispose();
   }
 
   @override
@@ -100,7 +94,10 @@ class CfNavigationBarState extends State<CfNavigationBar>
 
   /// This method InheritedWidget calling [ClickableActions]
   /// return index button.
-  void changePositionSet(int index) {}
+  void changePositionSet(int index) {
+    widget.controller
+        .animateToPage(index, duration: widget.duration, curve: widget.curve);
+  }
 
   @override
   Widget build(BuildContext context) {
