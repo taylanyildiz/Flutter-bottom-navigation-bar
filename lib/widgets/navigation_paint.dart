@@ -52,14 +52,14 @@ class NavigationPaint extends CustomPainter {
     double c = 0;
 
     if (pageCount! == 4)
-      c = -0.1;
-    else if (pageCount! == 5) c = 1;
+      c = 2.7;
+    else if (pageCount! == 5) c = 2.5;
 
     final Offset center = size.center(Offset.zero);
 
     final radius = size.width / (2 * pageCount!);
 
-    final space = -radius;
+    final space = 0;
 
     final double totalWidth =
         (pageCount! * 2 * radius) + ((pageCount! - c) * space);
@@ -67,7 +67,7 @@ class NavigationPaint extends CustomPainter {
     final int pageIndex = _page.round();
 
     final double leftDot =
-        (center.dx - (totalWidth / 2)) + (pageIndex * (2 * radius) + space);
+        (center.dx - (totalWidth / c)) + (pageIndex * (2 * radius) + space);
 
     final double transition = _page - pageIndex;
 
