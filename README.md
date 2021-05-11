@@ -13,14 +13,9 @@ Bottom Navigation bar Animation.
 | <a  target="_blank"><img src="https://user-images.githubusercontent.com/37551474/117729432-7d29e900-b1f3-11eb-8dfb-ee8608bf7651.gif" width="200"></a> | <a  target="_blank"><img src="ss1.png" width="200"></a> |  <a  target="_blank"><img src="https://user-images.githubusercontent.com/37551474/117789577-25ba6600-b251-11eb-854a-da8d013cf299.gif" width="200"></a> | 
 
 
-### 
-|             App Home               |
-:----------------------------------: |
-| <a  target="_blank"><img src="" width="200"></a>|
-| <a  target="_blank"><img src="" width="200"></a>|
-## Github
+# Github
  - [taylanyildz](https://github.com/taylanyildiz)
-## Linkedin
+# Linkedin
  - [taylanyildz](https://www.linkedin.com/in/taylan-yıldız-02225a158)
 ### How To Use
  - [home_screen](https://github.com/taylanyildiz/Flutter-bottom-navigation-bar/blob/master/lib/screens/home_screen.dart)
